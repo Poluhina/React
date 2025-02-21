@@ -19,23 +19,23 @@ function Header() {
    </header>
  );
 }
-exsport default Footer;
+export default Footer;
 ```
 2.Создала файл Footer.jsx в папке src/components, который возвращает JSX-разметку с подвалом.
 ```jsx
 function Footer() {
  return (
    <footer>
-       <p?$copy; {new Date().getFullYear()} Mini-Blpg</p>
+       <p>© {new Date().getFullYear()} Mini-Blpg</p>
    </footer>
  );
 }
-exsport default Footer;
+export default Footer;
 ```
 
 3.Создала файл Article.jsx в папке src/components, который возвращает JSX-разметку с заголовком и текстом статьи. Компонент Article должен принимать пропсы title и text.
 ```jsx
-function Article(/* props */) {
+function Article({title, text}) {
  return (
    <article>
      <h2>{title}</h2>
@@ -43,31 +43,55 @@ function Article(/* props */) {
    </article>
  );
 }
-exsport default Footer;
+export default Article;
 ```
 
 4.Создала файл ArticleList.jsx в папке src/components. В файле ArticleList.jsx создала функциональный компонент ArticleList, который возвращает JSX-разметку со списком статей
 ```jsx
-import Article from "./Article";
+import Article from './Article';
 
-   function ArticleList() {
-     const articles = [
-       { title: "Новости дня", text: "Свежие события и главные заголовки" },
-       { title: "Технологии", text: "Новые разработки и тренды в IT" },
-       { title: "Спорт", text: "Результаты матчей и спортивные обзоры" },
-       { title: "Культура", text: "Интересные события в мире искусства" },
-     ];
+const article1 = {
+  title: "Новости дня",
+  text: "Свежие события и главные заголовки"
+};
 
-     return (
-       <main>
-         {articles.map((article, index) => (
-           <Article key={index} title={article.title} text={article.text} />
-         ))}
-       </main>
-     );
-   }
-   
-   export default ArticleList;
+const article2 = {
+  title: "Технологии",
+  text: "Новые разработки и тренды в IT"
+};
+
+const article3 = {
+  title: "Спорт",
+  text: "Результаты матчей и спортивные обзоры"
+};
+
+const article4 = {
+  title: "Культура",
+  text: "Интересные события в мире искусства"
+};
+
+export default function ArticleList() {
+  return (
+    <>
+      <Article
+        title={article1.title}
+        text={article1.text}
+      />
+      <Article
+        title={article2.title}
+        text={article2.text}
+      />
+      <Article
+        title={article3.title}
+        text={article3.text}
+      />
+      <Article
+        title={article4.title}
+        text={article4.text}
+      />
+    </>
+  );
+}
 ```
 5.Объединила компоненты Header, Article и ArticleList в компонент App.
 ```jsx
@@ -75,17 +99,19 @@ import Article from "./Article";
    import ArticleList from "./components/ArticleList.jsx";
    import Footer from "./components/Footer.jsx";
 
-   function App() {
-     return (
-       <div>
-         <Header />
-         <ArticleList />
-         <Footer />
-       </div>
-     );
-   }
-   
-   export default App;
+function App() {
+  return (
+    <>
+      <Header />
+      <main>
+        <ArticleList />
+      </main>
+      <Footer />
+    </>
+  )
+}
+
+export default App
 ```
 # Задание 3. Тестирование компонентов
 Запустила сервер разработки с помощью npm run dev. Компоненты Header, ArticleList и Footer отображаются на странице.
