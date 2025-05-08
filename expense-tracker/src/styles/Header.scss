@@ -1,0 +1,32 @@
+.main-header {
+    background-color: #1f1f1f;
+    color: white;
+    padding: 1rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(139, 15, 122, 0.2);
+  }
+  
+  .main-header h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  
+  .nav-links a:hover {
+    color: #ffce00;
+  }
+  
